@@ -1,20 +1,20 @@
-# Vim Better Whitespace Plugin
+# Vim9 Whitespace Highliter
 
-This plugin causes all trailing whitespace characters (see [Supported Whitespace
+### !!! plugin need vim 9.1 with classes support
+
+This plugin highlite all trailing whitespace characters (see [Supported Whitespace
 Characters](#supported-whitespace-characters) below) to be highlighted. Whitespace for the current line will
-not be highlighted while in insert mode. It is possible to disable current line highlighting while in other
-modes as well (see options below). A helper function `:StripWhitespace` is also provided to make whitespace
-cleaning painless.
+not be highlighted while in insert mode.
 
 Here is a screenshot of this plugin at work:
-![Example Screenshot](http://i.imgur.com/St7yHth.png)
+![Example Screenshot](https://imgur.com/a/mYwHDYI)
 
 ## Installation
 There are a few ways you can go about installing this plugin:
 
 1.  If you have [Vundle](https://github.com/gmarik/Vundle.vim) you can simply add:
     ```vim
-    Plugin 'ntpeters/vim-better-whitespace'
+    Plugin 'greeschenko/vim9-whitespace-highliter'
     ```
     to your `.vimrc` file then run:
     ```vim
@@ -22,10 +22,16 @@ There are a few ways you can go about installing this plugin:
     ```
 2.  If you are using [Pathogen](https://github.com/tpope/vim-pathogen), you can just run the following command:
     ```
-    git clone git://github.com/ntpeters/vim-better-whitespace.git ~/.vim/bundle/vim-better-whitespace
+    git clone https://github.com/greeschenko/vim9-whitespace-highliter.git ~/.vim/bundle/vim9-whitespace-highliter
     ```
-3.  While this plugin can also be installed by copying its contents into your `~/.vim/` directory, I would
-    highly recommend using one of the above methods as they make managing your Vim plugins painless.
+3.  If you are using build in packadd
+    ```
+    git clone https://github.com/greeschenko/vim9-whitespace-highliter.git ~/.vim/pack/downloads/opt/
+    ```
+    and add to ~/.vimrc
+    ```vim
+    packadd vim9-whitespace-highliter
+    ```
 
 ## Usage
 Whitespace highlighting is enabled by default, with a highlight color of red.
