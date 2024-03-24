@@ -7,7 +7,7 @@ Characters](#supported-whitespace-characters) below) to be highlighted. Whitespa
 not be highlighted while in insert mode.
 
 Here is a screenshot of this plugin at work:
-![Example Screenshot](https://imgur.com/a/mYwHDYI)
+![Example Screenshot](https://i.imgur.com/ttfmPXa.png)
 
 ## Installation
 There are a few ways you can go about installing this plugin:
