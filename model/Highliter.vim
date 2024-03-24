@@ -18,8 +18,9 @@ export class WhitespaceHighliter
             this.guicolor = config.guicolor
         endif
 
-        autocmd! FileType,WinEnter,BufWinEnter * g:WhitespaceHighliter.HighlightEOLWhitespace()
-        autocmd ColorScheme * g:WhitespaceHighliter.WhitespaceInit()
+        autocmd! FileType,WinEnter,BufWinEnter,CursorMoved * g:WhitespaceHighliter.HighlightEOLWhitespace()
+        autocmd! ColorScheme * g:WhitespaceHighliter.WhitespaceInit()
+        autocmd! CursorMovedI,InsertEnter * g:WhitespaceHighliter.HighlightEOLWhitespaceExceptCurrentLine()
 
         command! RemoveWhitespaces g:WhitespaceHighliter.RemoveWhitespaces() 
     enddef
@@ -30,6 +31,19 @@ export class WhitespaceHighliter
         if hlexists('ExtraWhitespace') == 0 || empty(synIDattr(synIDtrans(hlID('ExtraWhitespace')), 'bg'))
             execute 'highlight ExtraWhitespace ctermbg=' .. this.ctermcolor .. ' guibg=' .. this.guicolor
         endif
+    enddef
+
+    def HighlightEOLWhitespaceExceptCurrentLine()
+        this.ClearHighlighting()
+        exe 'syn match ExtraWhitespace excludenl "\%<' 
+        .. line('.') 
+        ..  'l' 
+        .. this.eol_whitespace_pattern 
+        ..  '\|\%>' 
+        .. line('.') 
+        ..  'l' 
+        .. this.eol_whitespace_pattern 
+        .. '"'
     enddef
 
     def HighlightEOLWhitespace()
