@@ -18,7 +18,7 @@ export class WhitespaceHighliter
             this.guicolor = config.guicolor
         endif
 
-        autocmd! FileType,WinEnter,BufWinEnter,CursorMoved * g:WhitespaceHighliter.HighlightEOLWhitespace()
+        autocmd! FileType,WinEnter,BufWinEnter,CursorHold * g:WhitespaceHighliter.HighlightEOLWhitespace()
         autocmd! ColorScheme * g:WhitespaceHighliter.WhitespaceInit()
         autocmd! CursorMovedI,InsertEnter * g:WhitespaceHighliter.HighlightEOLWhitespaceExceptCurrentLine()
 
